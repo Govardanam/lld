@@ -11,6 +11,8 @@ public class Client {
                 .setAge(23).setUniversityName("govaUniveristy").build();
 
         System.out.println("debug");
+        System.out.println("select if the github change is working or not");
+        System.out.println("confirm chagne");
 
     }
 
