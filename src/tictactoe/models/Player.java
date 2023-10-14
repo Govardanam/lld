@@ -1,7 +1,5 @@
 package tictactoe.models;
-
 import tictactoe.models.types.PlayerType;
-
 import java.util.Scanner;
 
 public class Player {
