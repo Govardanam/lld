@@ -12,7 +12,10 @@ public class Client {
 
         System.out.println("debug");
         System.out.println("select if the github change is working or not");
+
         System.out.println("confirm chagne");
+        System.out.println("double check");
+
 
     }
 
