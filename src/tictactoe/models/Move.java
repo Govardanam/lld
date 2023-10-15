@@ -4,9 +4,9 @@ public class Move {
     private Cell cell;
     private Player player;
 
-    public Move(Cell cell, Move move){
+    public Move(Cell cell, Player player){
         this.cell =cell;
-        this.move = move;
+        this.player= player;
     }
 
     public Cell getCell() {

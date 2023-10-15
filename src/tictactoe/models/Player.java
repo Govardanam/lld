@@ -38,6 +38,11 @@ public class Player {
     }
 
     public Move makeMove(){
-    return new Move();
+        System.out.println("Please tell the row count where do you wnat to move");
+        int row = scanner.nextInt();
+        System.out.println("Please tell the column count where do you wnat to move");
+        int col= scanner.nextInt();
+
+    return new Move( new Cell(row,col), this);
     }
 }

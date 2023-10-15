@@ -1,5 +1,7 @@
 package tictactoe.models;
 
+import org.jetbrains.annotations.NotNull;
+import tictactoe.models.types.CellState;
 import tictactoe.models.types.GameState;
 import tictactoe.models.types.PlayerType;
 import tictactoe.strategy.GameWinningStrategy;
@@ -62,6 +64,36 @@ public class Game {
     }
 
     public  void makeMove(){
+        Player player = players.get(nextPlayerIndex);
+
+        Move move =null;
+        if(player.getType().equals(PlayerType.BOT)){
+            // to be implemented
+            //bot playing strategy
+        } else {
+            move = player.makeMove();
+        }
+
+        if(!validateMove(move)){
+            throw new IllegalCallerException("illegal move");
+        }
+
+        Integer row = move.getCell().getRow();
+        Integer col = move.getCell().getColumn();
+
+        Cell cellToBeUpdated = board.getBoard().get(row).get(col);
+        cellToBeUpdated.setCellState(CellState.FILLED);
+        cellToBeUpdated.setPlayer(move.getPlayer());
+
+        move.setCell(cellToBeUpdated);
+        playerMoves.add(move);
+
+        nextPlayerIndex++;
+        nextPlayerIndex= nextPlayerIndex%players.size();
+
+
+
+
 
     }
 
@@ -69,8 +101,24 @@ public class Game {
 
     }
 
-    public void validateMove(Move move){
+    public Boolean validateMove( Move move){
 
+        //get the player
+        //call make move on player
+        //validate move
+        //update the cell
+        //updateMove
+        //after move, check if winner exist
+        int row = move.getCell().getRow();
+        int col = move.getCell().getColumn();
+
+        if(row>=board.getDimensions() || col>=board.getDimensions())
+            return false;
+
+        if(board.getBoard().get(row).get(col).getCellState().equals(CellState.FILLED))
+            return false;
+
+        return true;
     }
 
     public void printBoard(){
