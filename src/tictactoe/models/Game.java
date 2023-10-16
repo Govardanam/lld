@@ -91,14 +91,27 @@ public class Game {
         nextPlayerIndex++;
         nextPlayerIndex= nextPlayerIndex%players.size();
 
+        if(checkWinner(move,board)){
+            gameState = GameState.END;
+            winnerPlayer=move.getPlayer();
 
+        }
+        else if(playerMoves.size()==board.getDimensions()*board.getDimensions()){
+            gameState=GameState.DRAW;
+
+        }
 
 
 
     }
 
-    public void checkWinner(Move move,  Board board){
+    public boolean checkWinner(Move move,  Board board){
 
+        for(GameWinningStrategy swt:winningStrategies){
+            if(swt.checkWinner(board,move))
+                return true;
+        }
+    return false;
     }
 
     public Boolean validateMove( Move move){
