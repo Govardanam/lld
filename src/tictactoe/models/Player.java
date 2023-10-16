@@ -38,6 +38,7 @@ public class Player {
     }
 
     public Move makeMove(){
+        System.out.println("Current Player is :"+this.getName()+" and Symbol is "+ this.getSymbol().getPlayerSymbol().toString());
         System.out.println("Please tell the row count where do you wnat to move");
         int row = scanner.nextInt();
         System.out.println("Please tell the column count where do you wnat to move");

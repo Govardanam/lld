@@ -1,6 +1,7 @@
 package tictactoe;
 
 import tictactoe.controller.GameController;
+import tictactoe.models.Game;
 import tictactoe.models.Player;
 import tictactoe.models.Symbol;
 import tictactoe.models.types.GameState;
@@ -32,12 +33,25 @@ public class User {
         Game game = gamecontroller.gameStart(players, winRules, 3);
         while(gamecontroller.checkGameState(game).equals(GameState.IN_PROGRESS)){
             //printboard
+                gamecontroller.printBoard(game);
+
 
             //ask for input
 
             //makeMove
+            gamecontroller.makeMove(game);
         }
 
+        System.out.println("Game is over");
+        gamecontroller.printBoard(game);
+
+        GameState gameState = gamecontroller.checkGameState(game);
+
+        if(gameState.equals(GameState.DRAW))
+            System.out.println("Game is drawn");
+        else if(gameState.equals(GameState.END)){
+            System.out.println("Game is ended and winner is "+gamecontroller.getWinner(game).getName());
+        }
 
     }
 }

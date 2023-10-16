@@ -41,7 +41,7 @@ public class Game {
         return playerMoves;
     }
 
-    public Player getWinnerPlayer() {
+    public Player   getWinnerPlayer() {
         return winnerPlayer;
     }
 

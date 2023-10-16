@@ -30,6 +30,7 @@ public class Board {
         for(List<Cell>  row : board){
             for( Cell cell : row)
                 cell.display();
+            System.out.println();
         }
         System.out.println("\n");
 

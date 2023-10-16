@@ -41,9 +41,9 @@ public class Cell {
     public void display(){
 
         if(this.getCellState().equals(CellState.EMPTY)){
-            System.out.println("| - |");
+            System.out.print("| - |");
         }else{
-            System.out.println("| "+ this.getPlayer().getSymbol().getPlayerSymbol()+" |");
+            System.out.print("| "+ this.getPlayer().getSymbol().getPlayerSymbol()+" |");
         }
 
     }

@@ -15,7 +15,7 @@ public class GameController {
     }
 
     public GameState checkGameState(Game game){
-        return game.GameState;
+        return game.getGameState();
     }
     public Game gameStart(List<Player> players, List<GameWinningStrategy> winningStrategies,
                           Integer dimensions){
@@ -24,5 +24,13 @@ public class GameController {
                                      .setWinningStrategies(winningStrategies).build();
 
 
+    }
+
+    public void makeMove(Game game){
+         game.makeMove();
+    }
+
+    public Player getWinner(Game game){
+        return game.getWinnerPlayer();
     }
 }
