@@ -139,6 +139,21 @@ public class Game {
     }
 
     public void undo(){
+        //get the move
+        // unset the cells
+        Move undoMove = playerMoves.remove(playerMoves.size()-1);
+        nextPlayerIndex--;
+        Cell undoCell = undoMove.getCell();
+        undoCell.setCellState(CellState.EMPTY);
+        int row = undoCell.getRow();
+        int column = undoCell.getColumn();
+
+        for(GameWinningStrategy gws: winningStrategies){
+            gws.handleUndo(undoMove);
+        }
+
+        System.out.println("Board after undo");
+        board.printBoard();
 
     }
 

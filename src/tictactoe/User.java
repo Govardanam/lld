@@ -7,6 +7,7 @@ import tictactoe.models.Symbol;
 import tictactoe.models.types.GameState;
 import tictactoe.models.types.PlayerType;
 import tictactoe.strategy.ColumnWinningStrategy;
+import tictactoe.strategy.DiagonalWinningStrategy;
 import tictactoe.strategy.GameWinningStrategy;
 import tictactoe.strategy.RowWinningStrategy;
 
@@ -29,6 +30,7 @@ public class User {
         List<GameWinningStrategy> winRules = new ArrayList<>();
         winRules.add(new RowWinningStrategy());
         winRules.add(new ColumnWinningStrategy());
+        winRules.add(new DiagonalWinningStrategy());
 
         Game game = gamecontroller.gameStart(players, winRules, 3);
         while(gamecontroller.checkGameState(game).equals(GameState.IN_PROGRESS)){
@@ -37,6 +39,10 @@ public class User {
 
 
             //ask for input
+            System.out.println("do you undo the move(yes/no)");
+            String ans = scanner.next();
+            if(ans.equalsIgnoreCase("yes"))
+                gamecontroller.undo(game);
 
             //makeMove
             gamecontroller.makeMove(game);

@@ -39,7 +39,13 @@ public class ColumnWinningStrategy implements GameWinningStrategy{
     }
 
     @Override
-    public void handleUndo(Board board, Move move) {
+    public void handleUndo( Move move) {
+        int col = move.getCell().getColumn();
+        Symbol symbol = move.getPlayer().getSymbol();
+
+        Map<Symbol,Integer> symbolCount = colCountMap.get(col);
+        symbolCount.put(symbol,symbolCount.get(symbol)-1);
+
 
     }
 }
